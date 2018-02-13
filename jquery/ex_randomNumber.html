@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script language="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.8.0/jquery.mark.min.js"></script>
+
+	<script language="javascript">
+
+		function randdom_Num() {
+		
+			var num1 = Math.floor(Math.random() * 999) + 1;
+			var num2 = Math.floor(Math.random() * 999) + 1;
+			$("#randdom1").html(num1);
+			$("#randdom2").html(num2);
+			var sum = num1 + num2;
+			$("#numHidden").val(sum);
+			console.log(sum);
+
+		}
+
+		function send_Ans(){
+
+			var answer = $("#answer").val();
+			var numHidden = $("#numHidden").val();
+			console.log(numHidden);
+			console.log(answer);
+			if(numHidden == answer){
+				$('#result').html("That's correct.");
+				$('#result').css("color", "green");
+			}else{
+				$('#result').html("That's wrong. The answer is " + numHidden);
+				$('#result').css("color", "red");
+			}
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<h1>Ex - Randdom Number for Answer</h1>
+		<hr>
+		<button name="randdom" onclick="randdom_Num();">Randdom Number</button>
+		<br><br>
+		<input type="hidden" name="" value="" id="numHidden">
+		<span id="randdom1"></span> + <span id="randdom2"></span> =
+		<input input type="text" name="answer" id="answer">
+		<br><br>
+		<button  onclick="send_Ans();">Send Answer</button>
+		<br><br>
+		Result : <span id="result"></span>
+	</center>
+</body>
+</html>
